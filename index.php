@@ -16,6 +16,8 @@
 		} else {
 			echo 'ERROR: '. mysqli_error($conn);
 		}
+    // header("location: index.php");
+    // exit();
 	}
 ?>
 

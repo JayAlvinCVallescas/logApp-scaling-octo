@@ -1,7 +1,24 @@
 <?php
-  
+ include('config/config.php');
+ include('config/db.php');
+  if(isset($_POST['username']) and isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $sqluser = "SELECT * FROM account WHERE username = '$username'";
+    $okayuser = mysqli_fetch_array(mysqli_query($conn,$sqluser));
+    if(!empty($okayuser) and $password == $okayuser['pass'] and $okayuser['account_type'] == 'admin')
+    {
+      header("Location: guestbook-list.php");
+      exit();
+    } 
+    else if(!empty($okayuser) and $okayuser['account_type'] == 'member') {
+      echo "You're not an admin, Can't redirect to Guestbook-list";
+    }
+    else { echo "User account doesn't exist or incorrect password"; }
 
-
+    setcookie('username',$_POST['username'] , time() + (86400 * 30), "/");
+    setcookie('password',$_POST['password'] , time() + (86400 * 30), "/");
+  }
 
 ?>
 <?php include('inc/header.php'); ?>

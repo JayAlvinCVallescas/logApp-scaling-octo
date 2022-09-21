@@ -1,5 +1,10 @@
 <?php
-
+    include('config/config.php');
+    include('config/db.php');
+    $mysqli = $conn;
+    $sql = " SELECT * FROM person";
+    $result = $mysqli->query($sql);
+    $mysqli->close();
 ?>
 
 <?php include('inc/header.php'); ?>
@@ -19,9 +24,9 @@
 		
 			<div class="well">
                 <tbody>
-                <?php foreach($persons as $person) : ?>
+                <?php foreach($result as $person) : ?>
                     <tr>
-                    <th scope="row"><?php echo $person['pid'];?></th>
+                    <th scope="row"><?php echo $person['person_id'];?></th>
                     <td><?php echo $person['lastname'];?></td>
                     <td><?php echo $person['firstname'];?></td>
                     <td><?php echo $person['address'];?></td>
