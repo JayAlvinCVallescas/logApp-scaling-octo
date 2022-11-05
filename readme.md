@@ -3,7 +3,7 @@
 ## **Description** :clipboard:<br>
 - The ***Visitor's log book*** is a simple project in which visitors may write their names and other information, such as the date and time they visit the place or site.<br><br>
 - Visitors can type their personal information in the registration page. However, they cannot access or view the list of logs. <br><br>
-- Only user that has admin account can view the list of visitor's personal information to ensure it is safe and protected.<br><br>
+- Only users that have admin account can view the list of visitor's personal information to ensure it is safe and protected.<br><br>
 - If the user wants to logout, he/she can click the logout button and the user will be redirected to the login page
 <br><br>
 ---
